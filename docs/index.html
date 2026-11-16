@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Regression and Classification</title>
+  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.22.0/dist/ort.min.js"></script>
+  <script src="index.js" defer></script>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 760px; margin: 30px auto; padding: 0 16px; }
+    label { display: block; margin: 12px 0 4px; }
+    input, textarea { box-sizing: border-box; width: 100%; padding: 8px; font: inherit; }
+    textarea { height: 105px; }
+    select { box-sizing: border-box; width: 100%; padding: 8px; font: inherit; }
+    section { margin-bottom: 36px; }
+    button { margin-top: 12px; padding: 7px 14px; font: inherit; }
+    table, td { border: 1px solid #888; border-collapse: collapse; padding: 8px; }
+    .result { margin-top: 14px; }
+    small { color: #555; }
+  </style>
+</head>
+<body>
+  <h1>Regression and Classification</h1>
+  <section>
+    <h2>California Housing Regression</h2>
+    <p>Estimate a census block group's median housing value using 1990 census information.</p>
+    <label for="box0c1">Longitude</label><input id="box0c1" type="number" step="any" value="-118.24">
+    <label for="box1c1">Latitude</label><input id="box1c1" type="number" step="any" value="34.05">
+    <label for="box2c1">Housing median age (years)</label><input id="box2c1" type="number" step="any" value="35">
+    <label for="box3c1">Total rooms (block group)</label><input id="box3c1" type="number" step="any" value="2500">
+    <label for="box4c1">Total bedrooms (block group)</label><input id="box4c1" type="number" step="any" value="450">
+    <label for="box5c1">Population (block group)</label><input id="box5c1" type="number" step="any" value="1200">
+    <label for="box6c1">Households (block group)</label><input id="box6c1" type="number" step="any" value="420">
+    <label for="box7c1">Median income (units of $10,000)</label><input id="box7c1" type="number" step="any" value="5.2">
+    <button type="button" onclick="runExample1()">Predict Housing Value</button>
+    <div class="result" id="predictions1" aria-live="polite"></div>
+  </section>
+  <section>
+    <h2>GTZAN Music Genre Classification</h2>
+    <p>Select a sample, listen to the recording, then predict its genre using the GTZAN feature data and ONNX model.</p>
+    <label for="sampleSelector">Select an audio sample</label>
+    <select id="sampleSelector" disabled><option>Loading samples...</option></select>
+    <label for="samplePlayer">Listen to selected sample</label>
+    <audio id="samplePlayer" controls preload="metadata" style="width:100%"></audio>
+    <small id="sampleStatus">Loading feature rows...</small>
+    <div><button type="button" id="classifyButton" onclick="runClassification()" disabled>Predict Genre</button></div>
+    <div class="result" id="classificationOutput" aria-live="polite"></div>
+    <details>
+      <summary>Load GTZAN features CSV if examples do not load</summary>
+      <p><small>Choose your own <code>features_3_sec.csv</code> to associate the ten songs with their 57 numerical audio features.</small></p>
+      <input id="sampleCSV" type="file" accept=".csv,text/csv" onchange="loadSampleCSV(this)">
+    </details>
+  </section>
+</body>
+</html>
