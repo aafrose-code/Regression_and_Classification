@@ -43,15 +43,15 @@ const genres = [
 
 const sampleSource = 'https://raw.githubusercontent.com/Harmanveer2546/Music-Genre-Classification/main/features_3_sec.csv';
 const sampleList = [
-  { filename: 'blues.00066.wav', audio: './audio/blues.00066.wav' },
-  { filename: 'pop.00097.wav', audio: './audio/pop.00097.wav' },
-  { filename: 'pop.00098.wav', audio: './audio/pop.00098.wav' },
-  { filename: 'pop.00099.wav', audio: './audio/pop.00099.wav' },
-  { filename: 'rock.00089.wav', audio: './audio/rock.00089.wav' },
-  { filename: 'hiphop.00087.wav', audio: './audio/hiphop.00087.wav' },
-  { filename: 'hiphop.00088.wav', audio: './audio/hiphop.00088.wav' },
-  { filename: 'classical.00056.wav', audio: './audio/classical.00056.wav' },
-  { filename: 'disco.00079.wav', audio: './audio/disco.00079.wav' },
+  { filename: 'blues.00066.wav', audio: './blues.00066.wav' },
+  { filename: 'pop.00097.wav', audio: './pop.00097.wav' },
+  { filename: 'pop.00098.wav', audio: './pop.00098.wav' },
+  { filename: 'pop.00099.wav', audio: './pop.00099.wav' },
+  { filename: 'rock.00089.wav', audio: './rock.00089.wav' },
+  { filename: 'hiphop.00087.wav', audio: './hiphop.00087.wav' },
+  { filename: 'hiphop.00088.wav', audio: './hiphop.00088.wav' },
+  { filename: 'classical.00056.wav', audio: './classical.00056.wav' },
+  { filename: 'disco.00079.wav', audio: './disco.00079.wav' },
   { filename: 'metal.00000.wav', audio: 'https://huggingface.co/datasets/m-a-p/GTZAN/resolve/main/genres/metal/metal.00000.wav' }
 ];
 
