@@ -127,8 +127,7 @@ function showMusicSamples(samples) {
   selector.disabled = false;
   selector.onchange = updateSelectedAudio;
   updateSelectedAudio();
-  const count = samples.filter(s => s.values).length;
-  setSampleStatus(`${count} of ${samples.length} samples matched to GTZAN features. Select a sample, listen, then predict.`);
+  setSampleStatus('');
 }
 
 async function loadSampleCSV(input) {
@@ -148,7 +147,7 @@ async function loadGTZANSamples() {
     showMusicSamples(parseGTZANSamples(await response.text()));
   } catch (e) {
     console.error('GTZAN dataset loading error:', e);
-    setSampleStatus('Could not retrieve feature data. Select your local features_3_sec.csv below to enable predictions. Audio playback is still available.');
+    setSampleStatus('Could not retrieve feature data. Audio playback is still available.');
   }
 }
 
@@ -156,7 +155,7 @@ async function runClassification() {
   const predictions = document.getElementById('classificationOutput');
   const sample = selectedSample();
   if (!sample || !sample.values) {
-    predictions.textContent = 'Feature data unavailable. Load GTZAN features_3_sec.csv below.';
+    predictions.textContent = 'Feature data unavailable.';
     return;
   }
   const x = new Float32Array(sample.values);

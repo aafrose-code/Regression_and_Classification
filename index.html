@@ -37,19 +37,12 @@
   </section>
   <section>
     <h2>GTZAN Music Genre Classification</h2>
-    <p>Select a sample, listen to the recording, then predict its genre using the GTZAN feature data and ONNX model.</p>
     <label for="sampleSelector">Select an audio sample</label>
     <select id="sampleSelector" disabled><option>Loading samples...</option></select>
-    <label for="samplePlayer">Listen to selected sample</label>
     <audio id="samplePlayer" controls preload="metadata" style="width:100%"></audio>
     <small id="sampleStatus">Loading feature rows...</small>
     <div><button type="button" id="classifyButton" onclick="runClassification()" disabled>Predict Genre</button></div>
     <div class="result" id="classificationOutput" aria-live="polite"></div>
-    <details>
-      <summary>Load GTZAN features CSV if examples do not load</summary>
-      <p><small>Choose your own <code>features_3_sec.csv</code> to associate the ten songs with their 57 numerical audio features.</small></p>
-      <input id="sampleCSV" type="file" accept=".csv,text/csv" onchange="loadSampleCSV(this)">
-    </details>
   </section>
 </body>
 </html>
